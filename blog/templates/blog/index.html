@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    My Blog
+{% endblock %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static "blog/post.css" %}" />
+    <link rel="stylesheet" href="{% static "blog/index.css" %}" />
+{% endblock %}
+
+{% block content %}
+
+    <section id="welcome">
+        <header>
+            <img src="{% static "blog/images/photo1.png" %}" alt="Eithan - The author of this blog" />
+            <h2> Eithan's Blog</h2>
+        </header>
+        <p>In this blog, it will be describerd my journey learning DJango</p>
+    </section>
+
+
+    <section id="latest-posts">
+        <h2> My Latest Thoughts</h2>
+
+
+        <ul>
+            {% for post in posts %}
+                {% include "blog/includes/posts.html"%}
+            {% endfor %}
+        </ul>
+
+    </section>
+
+
+    <section id="about">
+        <h2>What I do</h2>
+        <p>
+            I'm a Software Engineer, recently learning about Python & Django, trying
+            to create a web app first, and then dig deep into AI and Machine Learning
+        </p>
+
+        <p>
+            My goal here is to fully understand the framework, to be able to
+            fully work on it and complete tasks on my work.
+        </p>
+
+    </section>
+
+{% endblock %}
